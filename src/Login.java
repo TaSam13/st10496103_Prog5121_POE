@@ -32,9 +32,15 @@ public class Login {
         return matcher.matches();
     }
 
-    // Check phone number format (using regex from ChatGPT)
+    // Check phone number format (regex provided by ChatGPT)
+    // Source: https://chatgpt.com/share/68cda86d-9eb0-8010-a03d-4ed6d53b6eb2
+    // Date: September 18, 2025,
+    // ChatGPT Prompt: "Please create a regular expression for validating South African cell phone numbers
+    //                 that must start with the international code +27 followed by exactly 9 digits."
+    // Note: Regex validates proper South African international format: +27 followed by exactly 9 digits
+    //       (12 characters total: 3 from +27 + 9 digits)
     public boolean checkCellPhoneNumber(String phoneNumber) {
-        // South African number with international code: +27 followed by 9 digits
+        // South African number with international code: +27 followed by 9 digits (12 chars total)
         String regex = "^\\+27\\d{9}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phoneNumber);
